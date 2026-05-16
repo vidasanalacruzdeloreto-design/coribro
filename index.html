@@ -32,7 +32,6 @@
       --shadow: 0 24px 80px rgba(62, 85, 68, 0.16);
       --soft-shadow: 0 14px 40px rgba(62, 85, 68, 0.10);
       --radius-xl: 28px;
-      --radius-lg: 22px;
       --max: 1180px;
     }
 
@@ -122,7 +121,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 18px;
       color: var(--sage-900);
       font-size: 0.95rem;
       font-weight: 700;
@@ -131,6 +130,7 @@
     .nav-links a {
       opacity: 0.82;
       transition: opacity 180ms ease, color 180ms ease;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -430,7 +430,8 @@
     }
 
     .feature-card,
-    .trust-card {
+    .trust-card,
+    .club-mini-card {
       padding: 24px;
       border: 1px solid rgba(142, 165, 140, 0.24);
       border-radius: 24px;
@@ -439,7 +440,8 @@
       transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
 
-    .feature-card:hover {
+    .feature-card:hover,
+    .club-mini-card:hover {
       transform: translateY(-4px);
       border-color: rgba(142, 165, 140, 0.42);
       box-shadow: var(--soft-shadow);
@@ -458,13 +460,15 @@
     }
 
     .feature-card h3,
-    .trust-card h3 {
+    .trust-card h3,
+    .club-mini-card h3 {
       font-size: 1.12rem;
       letter-spacing: -0.03em;
     }
 
     .feature-card p,
-    .trust-card p {
+    .trust-card p,
+    .club-mini-card p {
       margin: 10px 0 0;
       color: var(--muted);
       font-size: 0.96rem;
@@ -513,6 +517,111 @@
       text-align: center;
       font-size: 0.94rem;
       font-weight: 900;
+    }
+
+    .club-section {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(142, 165, 140, 0.20), transparent 25rem),
+        radial-gradient(circle at 90% 18%, rgba(213, 190, 155, 0.26), transparent 22rem),
+        linear-gradient(180deg, rgba(255, 253, 247, 0.24), rgba(237, 243, 233, 0.58));
+    }
+
+    .club-hero {
+      display: grid;
+      grid-template-columns: 1fr 0.78fr;
+      gap: 30px;
+      align-items: stretch;
+      padding: 38px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(213, 190, 155, 0.42);
+      box-shadow: var(--shadow);
+    }
+
+    .club-copy p {
+      color: var(--muted);
+      margin: 16px 0 0;
+      font-size: 1.03rem;
+    }
+
+    .club-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .club-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--sage-100);
+      color: var(--sage-900);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .club-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 28px;
+      border-radius: 26px;
+      background: linear-gradient(145deg, var(--sage-800), var(--sage-500));
+      color: var(--cream-50);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .club-panel::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: -80px;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: rgba(255, 253, 247, 0.12);
+    }
+
+    .club-panel h3 {
+      color: var(--cream-50);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.05rem;
+      line-height: 1.05;
+    }
+
+    .club-panel p {
+      color: rgba(255, 253, 247, 0.82);
+      margin: 14px 0 0;
+    }
+
+    .club-panel .button {
+      position: relative;
+      z-index: 1;
+      width: fit-content;
+      background: var(--cream-50);
+      color: var(--sage-900);
+    }
+
+    .club-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .club-note {
+      margin-top: 26px;
+      padding: 22px 24px;
+      border-radius: 24px;
+      background: rgba(49, 66, 53, 0.07);
+      border: 1px solid rgba(142, 165, 140, 0.26);
+      color: var(--sage-900);
+      font-weight: 700;
     }
 
     .premium-card {
@@ -695,11 +804,17 @@
       .real-screenshots-grid {
         grid-template-columns: repeat(3, 1fr);
       }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.9rem;
+      }
     }
 
     @media (max-width: 980px) {
       .hero-grid,
       .intro-card,
+      .club-hero,
       .premium-card,
       .contact-card {
         grid-template-columns: 1fr;
@@ -714,6 +829,7 @@
       }
 
       .features-grid,
+      .club-grid,
       .trust-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -795,6 +911,7 @@
       }
 
       .features-grid,
+      .club-grid,
       .trust-grid {
         grid-template-columns: 1fr;
       }
@@ -805,6 +922,7 @@
 
       .premium-card,
       .intro-card,
+      .club-hero,
       .contact-card {
         padding: 24px;
       }
@@ -832,7 +950,8 @@
         flex-direction: column;
       }
 
-      .button {
+      .button,
+      .club-panel .button {
         width: 100%;
       }
 
@@ -857,6 +976,7 @@
         <a href="#que-es">Qué es</a>
         <a href="#funciones">Funciones</a>
         <a href="#capturas">Capturas</a>
+        <a href="#club">Club de lectura</a>
         <a href="#premium">Premium</a>
         <a href="#privacidad">Privacidad</a>
         <a class="nav-cta" href="#contacto">Soporte</a>
@@ -883,7 +1003,7 @@
 
           <div class="hero-actions">
             <a class="button button-primary" href="#capturas">Ver capturas reales</a>
-            <a class="button button-secondary" href="#funciones">Explorar funciones</a>
+            <a class="button button-secondary" href="#club">Club de lectura Coribro</a>
           </div>
 
           <div class="availability-note">App Android preparada para lectores. Próximamente disponible en Google Play.</div>
@@ -1043,6 +1163,102 @@
       </div>
     </section>
 
+    <section class="club-section" id="club">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-kicker">Club de lectura Coribro</div>
+          <h2>Descubre Guadalajara a través de sus libros.</h2>
+          <p>Una comunidad para lectoras, lectores y amantes de los libros que quieren compartir lecturas, descubrir espacios culturales y vivir la literatura dentro y fuera de la app.</p>
+        </div>
+
+        <div class="club-hero reveal">
+          <div class="club-copy">
+            <h3>Una comunidad lectora conectada con la app Coribro.</h3>
+            <p>El Club de lectura Coribro reúne actividades presenciales y virtuales alrededor de los libros: paseos literarios, encuentros de lectura, conversaciones, podcast, entrevistas, talleres y experiencias culturales.</p>
+            <p>Para participar es necesario registrarse y descargar la app Coribro, porque la comunicación del club, avisos, calendario mensual, reseñas y comunidad se gestionarán principalmente desde la app.</p>
+
+            <div class="club-badges" aria-label="Modalidades del Club de lectura Coribro">
+              <span class="club-badge">📍 Guadalajara</span>
+              <span class="club-badge">💻 Virtual</span>
+              <span class="club-badge">📚 Lectura mensual</span>
+              <span class="club-badge">🌿 Comunidad lectora</span>
+            </div>
+          </div>
+
+          <div class="club-panel">
+            <div>
+              <h3>Regístrate para formar parte del club.</h3>
+              <p>Completa el formulario de registro y recibe información sobre la comunidad, la app Coribro y las próximas actividades lectoras.</p>
+            </div>
+
+            <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLScxyh3PjxYc1KKWmLYJAOfgtY-G_0Px3LEg4dfqhCig-tWvMw/viewform" target="_blank" rel="noopener noreferrer">
+              Unirme al Club de lectura Coribro
+            </a>
+          </div>
+        </div>
+
+        <div class="club-grid">
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">🚶‍♀️</div>
+            <h3>Paseos literarios</h3>
+            <p>Recorridos para amantes de los libros por librerías, bibliotecas, cafés, espacios culturales y rincones literarios de Guadalajara.</p>
+          </article>
+
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">📖</div>
+            <h3>Club de lectura</h3>
+            <p>Encuentros presenciales para leer, conversar y compartir distintos géneros literarios en comunidad.</p>
+          </article>
+
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">💻</div>
+            <h3>Bookclub virtual</h3>
+            <p>Club en línea sobre reseñas, bibliofilia, lecturas compartidas y librerías del mundo.</p>
+          </article>
+
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">🎙</div>
+            <h3>Podcast</h3>
+            <p>Conversaciones sobre librerías, bibliotecas, ciudades literarias, autores y experiencias alrededor de los libros.</p>
+          </article>
+
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">🛋</div>
+            <h3>Viaja desde casa</h3>
+            <p>Entrevistas y encuentros virtuales para conocer escritores, libros y ciudades literarias desde el sillón.</p>
+          </article>
+
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">🧵</div>
+            <h3>Artesanía para lectores</h3>
+            <p>Productos y actividades creativas para lectores: diarios, cajas literarias, agendas, separadores y detalles lectores.</p>
+          </article>
+
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">🎭</div>
+            <h3>Eventos culturales</h3>
+            <p>Encuentros con otros clubes de lectura, actividades culturales y experiencias para fortalecer la comunidad lectora.</p>
+          </article>
+
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">✍️</div>
+            <h3>Cursos y talleres</h3>
+            <p>Espacios de escritura creativa, creación de personajes, novela, reseña literaria y herramientas para escribir mejor.</p>
+          </article>
+
+          <article class="club-mini-card reveal">
+            <div class="feature-icon">🎁</div>
+            <h3>Productos literarios</h3>
+            <p>Diseñamos productos lectores como diarios de lectura, cajas literarias, agendas y objetos inspirados en los libros.</p>
+          </article>
+        </div>
+
+        <div class="club-note reveal">
+          Requisito para participar: registrarte en el formulario y usar la app Coribro como canal principal de comunicación del club.
+        </div>
+      </div>
+    </section>
+
     <section id="premium">
       <div class="container">
         <div class="premium-card reveal">
@@ -1113,13 +1329,13 @@
           <div>
             <div class="section-kicker">Contacto y soporte</div>
             <h2>¿Tienes una duda sobre Coribro?</h2>
-            <p>Para soporte, consultas de privacidad, eliminación de cuenta o comentarios sobre la app, puedes usar el canal de contacto oficial de Coribro.</p>
+            <p>Para soporte, consultas de privacidad, eliminación de cuenta, comentarios sobre la app o información del Club de lectura Coribro, puedes usar el canal de contacto oficial.</p>
           </div>
 
           <div class="contact-box">
             <strong>Soporte Coribro</strong>
-            <a href="mailto:soporte@coribro.app">soporte@coribro.app</a>
-            <p style="margin-top: 12px; font-size: 0.94rem;">Cuando tengas tu correo definitivo de soporte, puedes reemplazar este correo por el oficial.</p>
+            <a href="mailto:soporte@coribro.mx">soporte@coribro.mx</a>
+            <p style="margin-top: 12px; font-size: 0.94rem;">Cuando configures tu correo personalizado en Cloudflare, este será el correo ideal para soporte y contacto del club.</p>
           </div>
         </div>
       </div>
@@ -1139,6 +1355,7 @@
       <div class="footer-links">
         <a href="#funciones">Funciones</a>
         <a href="#capturas">Capturas</a>
+        <a href="#club">Club de lectura</a>
         <a href="#premium">Premium</a>
         <a href="https://vidasanalacruzdeloreto-design.github.io/reading-journal-legal/privacy.html" target="_blank" rel="noopener noreferrer">Privacidad</a>
         <a href="https://vidasanalacruzdeloreto-design.github.io/reading-journal-legal/terms.html" target="_blank" rel="noopener noreferrer">Términos</a>
